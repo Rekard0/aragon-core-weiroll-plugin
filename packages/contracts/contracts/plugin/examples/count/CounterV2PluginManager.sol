@@ -40,6 +40,7 @@ contract CounterV2PluginManager is PluginManager {
             _multiplyHelper = createProxy(dao, address(multiplyHelperBase), "0x");
         }
 
+
         // Encode the parameters that will be passed to initialize() on the Plugin
         bytes memory initData = abi.encodeWithSelector(
             bytes4(keccak256("initialize(address,uint256)")),
@@ -90,6 +91,7 @@ contract CounterV2PluginManager is PluginManager {
         helperNames = new string[](1);
 
         // Allows plugin Count to call execute on DAO
+
         permissions[0] = buildPermission(
             BulkPermissionsLib.Operation.Grant,
             DAO_PLACEHOLDER,
